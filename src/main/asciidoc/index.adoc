@@ -1,12 +1,18 @@
 :toc: left
 
-= Getting Started With Spring REST Docs
+= サンプルAPI仕様書
 
-== About Sample API
+サンプルAPI群の仕様書です。
+
+== Sample
+
+サンプルAPIです。
 
 :base_path: doctest
 
 === Sample get
+
+あいさつ用メッセージを返すAPIです。
 
 :sample_get: {base_path}/get
 
@@ -20,6 +26,8 @@ include::{snippets}/{sample_get}/http-request.adoc[]
 include::{snippets}/{sample_get}/http-response.adoc[]
 
 === Sample post
+
+入力されたクレデンシャル情報を検証し、認証OKの場合は認可コードを返すAPIです。
 
 :sample_post: {base_path}/post
 
@@ -36,6 +44,8 @@ include::{snippets}/{sample_post}/http-request.adoc[]
 include::{snippets}/{sample_post}/http-response.adoc[]
 
 === Sample redirect
+
+googleのトップページにリダイレクトするAPIです。サンプルのパラメータは未使用です。
 
 :sample_redirect: {base_path}/redirect
 
