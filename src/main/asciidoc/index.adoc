@@ -11,5 +11,3 @@ include::{snippets}/doctest/http-request.adoc[]
 
 .response
 include::{snippets}/doctest/http-response.adoc[]
-
-As you can see the format is very simple, and in fact you always get the same message.
