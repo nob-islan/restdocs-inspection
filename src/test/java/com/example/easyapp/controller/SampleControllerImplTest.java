@@ -36,7 +36,9 @@ public class SampleControllerImplTest {
     @Test
     public void test_get_success() throws Exception {
 
-        this.mockMvc.perform(get("/sample/get?name=testNob")).andExpect(status().isOk()).andDo(document("doctest"));
+        this.mockMvc.perform(get("/sample/get").queryParam("name", "nob"))
+                .andExpect(status().isOk())
+                .andDo(document("doctest"));
     }
 
     /**
