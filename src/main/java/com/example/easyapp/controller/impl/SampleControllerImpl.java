@@ -54,8 +54,8 @@ public class SampleControllerImpl implements SampleController {
     public ModelAndView redirect(RedirectRequest redirectRequest) {
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:https://www.google.com/");
-        modelAndView.addObject("sample_value", redirectRequest.getSampleValue());
+        modelAndView
+                .setViewName("redirect:https://www.google.com/" + "?sample_value=" + redirectRequest.getSampleValue());
 
         return modelAndView;
     }
