@@ -1,15 +1,34 @@
 = Getting Started With Spring REST Docs
 
-== About API
+== About Sample API
 
-.request field
-include::{snippets}/doctest/request-fields.adoc[]
+:base_path: doctest
 
-.response field
-include::{snippets}/doctest/response-fields.adoc[]
+=== Sample GET
+
+:sample_get: {base_path}/get
+
+.query parameter
+include::{snippets}/{sample_get}/query-parameters.adoc[]
 
 .request
-include::{snippets}/doctest/http-request.adoc[]
+include::{snippets}/{sample_get}/http-request.adoc[]
 
 .response
-include::{snippets}/doctest/http-response.adoc[]
+include::{snippets}/{sample_get}/http-response.adoc[]
+
+=== Sample POST
+
+:sample_post: {base_path}/post
+
+.request field
+include::{snippets}/{sample_post}/request-fields.adoc[]
+
+.response field
+include::{snippets}/{sample_post}/response-fields.adoc[]
+
+.request
+include::{snippets}/{sample_post}/http-request.adoc[]
+
+.response
+include::{snippets}/{sample_post}/http-response.adoc[]
