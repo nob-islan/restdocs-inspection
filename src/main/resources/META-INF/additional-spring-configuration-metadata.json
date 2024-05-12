@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "sampleapidoc.describe.sample.post",
+      "type": "java.lang.String",
+      "description": "A description for 'sampleapidoc.describe.sample.post'"
+    },
+    {
+      "name": "sampleapidoc.describe.sample.get",
+      "type": "java.lang.String",
+      "description": "A description for 'sampleapidoc.describe.sample.get'"
+    },
+    {
+      "name": "sampleapidoc.describe.sample.redirect",
+      "type": "java.lang.String",
+      "description": "A description for 'sampleapidoc.describe.sample.redirect'"
+    }
+  ]
+}
