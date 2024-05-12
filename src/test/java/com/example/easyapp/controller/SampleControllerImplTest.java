@@ -62,6 +62,7 @@ public class SampleControllerImplTest {
         PostRequest postRequest = new PostRequest();
         postRequest.setUserId("nob");
         postRequest.setPassword("p@ssw0rd");
+        postRequest.setAge(20);
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -70,8 +71,9 @@ public class SampleControllerImplTest {
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andDo(document("doctest/post",
-                        requestFields(fieldWithPath("userId").description("ユーザID"),
-                                fieldWithPath("password").description("パスワード")),
+                        requestFields(fieldWithPath("userId").description("ユーザID*"),
+                                fieldWithPath("password").description("パスワード*"),
+                                fieldWithPath("age").description("年齢")),
                         responseFields(
                                 fieldWithPath("isAuthorized").description("認証の成否"),
                                 fieldWithPath("authorizationCode").description("認可コード"))));
