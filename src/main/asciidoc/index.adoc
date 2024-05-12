@@ -1,5 +1,7 @@
 = Getting Started With Spring REST Docs
 
+== About API
+
 .request field
 include::{snippets}/doctest/request-fields.adoc[]
 
