@@ -1,7 +1,6 @@
 package com.example.easyapp.controller;
 
-import javax.validation.Valid;
-
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +14,10 @@ import com.example.easyapp.dto.PostRequest;
 import com.example.easyapp.dto.PostResponse;
 import com.example.easyapp.dto.RedirectRequest;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+
 /**
  * サンプルコントローラのインターフェースです。
  * 
@@ -23,6 +26,7 @@ import com.example.easyapp.dto.RedirectRequest;
  */
 @RestController
 @RequestMapping(value = "/sample")
+@Tag(name = "Sample", description = "サンプルAPIです。")
 public interface SampleController {
 
     /**
@@ -32,7 +36,8 @@ public interface SampleController {
      * @return あいさつ用メッセージ
      */
     @GetMapping(value = "/get")
-    GetResponse get(GetRequest getRequest);
+    @Operation(summary = "Sample get", description = "${sampleapidoc.describe.sample.get:説明文}")
+    GetResponse get(@ParameterObject GetRequest getRequest);
 
     /**
      * サンプルのPOSTメソッドです。入力されたクレデンシャル情報を検証し、認証の成否を返します。
@@ -41,6 +46,7 @@ public interface SampleController {
      * @return 認証の成否 認証成功の場合は認可コード
      */
     @PostMapping(value = "/post")
+    @Operation(summary = "Sample post", description = "${sampleapidoc.describe.sample.post:説明文}")
     PostResponse post(@RequestBody @Valid PostRequest postRequest);
 
     /**
@@ -50,5 +56,6 @@ public interface SampleController {
      * @return googleトップページ
      */
     @GetMapping(value = "/redirect")
-    ModelAndView redirect(RedirectRequest redirectRequest);
+    @Operation(summary = "Sample redirect", description = "${sampleapidoc.describe.sample.get:説明文}")
+    ModelAndView redirect(@ParameterObject RedirectRequest redirectRequest);
 }

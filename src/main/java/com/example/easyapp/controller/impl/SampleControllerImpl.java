@@ -1,7 +1,5 @@
 package com.example.easyapp.controller.impl;
 
-import javax.validation.Valid;
-
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,7 +36,7 @@ public class SampleControllerImpl implements SampleController {
      * {@inheritDoc}
      */
     @Override
-    public PostResponse post(@Valid PostRequest postRequest) {
+    public PostResponse post(PostRequest postRequest) {
 
         PostResponse postResponse = new PostResponse();
         postResponse.setIsAuthorized(true);
