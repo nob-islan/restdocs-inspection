@@ -8,7 +8,6 @@ import com.example.easyapp.dto.GetRequest;
 import com.example.easyapp.dto.GetResponse;
 import com.example.easyapp.dto.PostRequest;
 import com.example.easyapp.dto.PostResponse;
-import com.example.easyapp.dto.RedirectRequest;
 
 /**
  * サンプルコントローラの実装です。
@@ -49,11 +48,11 @@ public class SampleControllerImpl implements SampleController {
      * {@inheritDoc}
      */
     @Override
-    public ModelAndView redirect(RedirectRequest redirectRequest) {
+    public ModelAndView redirect() {
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView
-                .setViewName("redirect:https://www.google.com/" + "?sample_value=" + redirectRequest.getSampleValue());
+                .setViewName("redirect:https://www.google.com/");
 
         return modelAndView;
     }

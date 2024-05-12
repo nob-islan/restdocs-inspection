@@ -1,4 +1,5 @@
 :toc: left
+:source-highlighter: highlightjs
 
 = サンプルAPI仕様書
 
@@ -23,7 +24,7 @@ include::{snippets}/{sample_get}/query-parameters.adoc[]
 include::{snippets}/{sample_get}/http-request.adoc[]
 
 .response
-include::{snippets}/{sample_get}/http-response.adoc[]
+include::{snippets}/{sample_get}/response-body.adoc[]
 
 === Sample post
 
@@ -41,11 +42,11 @@ include::{snippets}/{sample_post}/response-fields.adoc[]
 include::{snippets}/{sample_post}/http-request.adoc[]
 
 .response
-include::{snippets}/{sample_post}/http-response.adoc[]
+include::{snippets}/{sample_post}/response-body.adoc[]
 
 === Sample redirect
 
-googleのトップページにリダイレクトするAPIです。サンプルのパラメータは未使用です。
+googleのトップページにリダイレクトするAPIです。
 
 :sample_redirect: {base_path}/redirect
 

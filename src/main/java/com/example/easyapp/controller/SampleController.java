@@ -12,7 +12,6 @@ import com.example.easyapp.dto.GetRequest;
 import com.example.easyapp.dto.GetResponse;
 import com.example.easyapp.dto.PostRequest;
 import com.example.easyapp.dto.PostResponse;
-import com.example.easyapp.dto.RedirectRequest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -57,5 +56,5 @@ public interface SampleController {
      */
     @GetMapping(value = "/redirect")
     @Operation(summary = "Sample redirect", description = "${sampleapidoc.describe.sample.get:説明文}")
-    ModelAndView redirect(@ParameterObject RedirectRequest redirectRequest);
+    ModelAndView redirect();
 }

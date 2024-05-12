@@ -9,7 +9,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.example.easyapp.dto.GetRequest;
 import com.example.easyapp.dto.PostRequest;
-import com.example.easyapp.dto.RedirectRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -48,7 +47,8 @@ public class SampleControllerImplTest {
                 .perform(get("/sample/get").queryParam("name", getRequest.getName()))
                 .andExpect(status().isOk())
                 .andDo(document("doctest/get",
-                        queryParameters(parameterWithName("name").description("名前"))));
+                        queryParameters(parameterWithName("name").description("名前")),
+                        responseBody()));
     }
 
     /**
@@ -71,8 +71,9 @@ public class SampleControllerImplTest {
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andDo(document("doctest/post",
-                        requestFields(fieldWithPath("userId").description("ユーザID*"),
-                                fieldWithPath("password").description("パスワード*"),
+                        requestFields(
+                                fieldWithPath("userId").description("ユーザIDです。"),
+                                fieldWithPath("password").description("パスワード"),
                                 fieldWithPath("age").description("年齢")),
                         responseFields(
                                 fieldWithPath("isAuthorized").description("認証の成否"),
@@ -87,13 +88,9 @@ public class SampleControllerImplTest {
     @Test
     public void test_redirect_success() throws Exception {
 
-        RedirectRequest redirectRequest = new RedirectRequest();
-        redirectRequest.setSampleValue("sample");
-
-        this.mockMvc.perform(get("/sample/redirect").queryParam("sampleValue", redirectRequest.getSampleValue()))
+        this.mockMvc.perform(get("/sample/redirect"))
                 .andExpect(status().isFound())
-                .andExpect(view().name("redirect:https://www.google.com/?sample_value=sample"))
-                .andDo(document("doctest/redirect",
-                        queryParameters(parameterWithName("sampleValue").description("サンプルのクエリパラメータ"))));
+                .andExpect(view().name("redirect:https://www.google.com/"))
+                .andDo(document("doctest/redirect"));
     }
 }

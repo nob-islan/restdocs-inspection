@@ -17,6 +17,11 @@ curl -X POST -H 'Content-Type: application/json' -d '{"userId": "nob", "password
 curl -X GET 'Content-Type: application/json' localhost:8080/sample/redirect?sampleValue=sample
 ```
 
+## 課題
+
+- json を jq フォーマットできない？
+- リクエストの必須項目を判別する手段が欲しい
+
 ## 参考文献
 
 - [公式ドキュメント](https://spring.pleiades.io/guides/gs/testing-restdocs)
