@@ -3,12 +3,14 @@ package com.example.easyapp.controller.impl;
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.easyapp.controller.SampleController;
 import com.example.easyapp.dto.GetRequest;
 import com.example.easyapp.dto.GetResponse;
 import com.example.easyapp.dto.PostRequest;
 import com.example.easyapp.dto.PostResponse;
+import com.example.easyapp.dto.RedirectRequest;
 
 /**
  * サンプルコントローラの実装です。
@@ -43,5 +45,18 @@ public class SampleControllerImpl implements SampleController {
         postResponse.setAuthorizationCode("abc123");
 
         return postResponse;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ModelAndView redirect(RedirectRequest redirectRequest) {
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView
+                .setViewName("redirect:https://www.google.com/" + "?sample_value=" + redirectRequest.getSampleValue());
+
+        return modelAndView;
     }
 }

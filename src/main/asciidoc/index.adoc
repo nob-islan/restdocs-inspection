@@ -4,7 +4,7 @@
 
 :base_path: doctest
 
-=== Sample GET
+=== Sample get
 
 :sample_get: {base_path}/get
 
@@ -17,7 +17,7 @@ include::{snippets}/{sample_get}/http-request.adoc[]
 .response
 include::{snippets}/{sample_get}/http-response.adoc[]
 
-=== Sample POST
+=== Sample post
 
 :sample_post: {base_path}/post
 
@@ -32,3 +32,16 @@ include::{snippets}/{sample_post}/http-request.adoc[]
 
 .response
 include::{snippets}/{sample_post}/http-response.adoc[]
+
+=== Sample redirect
+
+:sample_redirect: {base_path}/redirect
+
+.query parameter
+include::{snippets}/{sample_redirect}/query-parameters.adoc[]
+
+.request
+include::{snippets}/{sample_redirect}/http-request.adoc[]
+
+.response
+include::{snippets}/{sample_redirect}/http-response.adoc[]

@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.easyapp.dto.GetRequest;
 import com.example.easyapp.dto.GetResponse;
 import com.example.easyapp.dto.PostRequest;
 import com.example.easyapp.dto.PostResponse;
+import com.example.easyapp.dto.RedirectRequest;
 
 /**
  * サンプルコントローラのインターフェースです。
@@ -40,4 +42,13 @@ public interface SampleController {
      */
     @PostMapping(value = "/post")
     PostResponse post(@RequestBody @Valid PostRequest postRequest);
+
+    /**
+     * サンプルのリダイレクトです。googleトップページにリダイレクトします。
+     * 
+     * @param redirectRequest リダイレクトURI
+     * @return googleトップページ
+     */
+    @GetMapping(value = "/redirect")
+    ModelAndView redirect(RedirectRequest redirectRequest);
 }
