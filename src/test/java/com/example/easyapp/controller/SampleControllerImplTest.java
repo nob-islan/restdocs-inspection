@@ -11,10 +11,12 @@ import com.example.easyapp.dto.PostRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.queryParameters;
 
 /**
  * サンプルコントローラーのテストクラスです。
@@ -38,7 +40,7 @@ public class SampleControllerImplTest {
 
         this.mockMvc.perform(get("/sample/get").queryParam("name", "nob"))
                 .andExpect(status().isOk())
-                .andDo(document("doctest"));
+                .andDo(document("doctest/get", queryParameters(parameterWithName("name").description("名前"))));
     }
 
     /**
@@ -59,7 +61,7 @@ public class SampleControllerImplTest {
                 .perform(post("/sample/post").content(objectMapper.writeValueAsString(postRequest))
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
-                .andDo(document("doctest",
+                .andDo(document("doctest/post",
                         requestFields(fieldWithPath("userId").description("ユーザID"),
                                 fieldWithPath("password").description("パスワード")),
                         responseFields(
