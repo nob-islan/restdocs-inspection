@@ -1,3 +1,5 @@
+:toc: left
+
 = Getting Started With Spring REST Docs
 
 == About Sample API
