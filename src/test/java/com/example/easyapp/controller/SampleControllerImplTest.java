@@ -68,11 +68,11 @@ public class SampleControllerImplTest {
 
         this.mockMvc
                 .perform(post("/sample/post").content(objectMapper.writeValueAsString(postRequest))
-                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                        .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(document("doctest/post",
                         requestFields(
-                                fieldWithPath("userId").description("ユーザIDです。"),
+                                fieldWithPath("userId").description("ユーザID"),
                                 fieldWithPath("password").description("パスワード"),
                                 fieldWithPath("age").description("年齢")),
                         responseFields(

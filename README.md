@@ -25,3 +25,4 @@ curl -X GET 'Content-Type: application/json' localhost:8080/sample/redirect?samp
 ## 参考文献
 
 - [公式ドキュメント](https://spring.pleiades.io/guides/gs/testing-restdocs)
+- [docs](https://docs.spring.io/spring-restdocs/docs/2.0.7.BUILD-SNAPSHOT/reference/)
